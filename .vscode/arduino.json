@@ -3,5 +3,5 @@
     "configuration": "CpuFrequency=80,UploadSpeed=115200,FlashSize=4M1M",
     "output": "./Build",
     "port": "COM26",
-    "sketch": "03_Fade\\app.ino"
+    "sketch": "04_Button\\app.ino"
 }
