@@ -1,3 +1,4 @@
+#define LED_BUILTIN 2
 
 int ledState = LOW;     
 
