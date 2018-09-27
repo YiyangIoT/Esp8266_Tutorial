@@ -1,5 +1,7 @@
 {
-    "sketch": "app.ino",
+    "sketch": "01_Blink\\app.ino",
     "board": "esp8266:esp8266:nodemcuv2",
-    "configuration": "CpuFrequency=80,UploadSpeed=115200,FlashSize=4M3M"
+    "configuration": "CpuFrequency=80,UploadSpeed=512000,FlashSize=4M1M",
+    "output": "./Build",
+    "port": "COM26"
 }
