@@ -20,8 +20,8 @@ const char* ssid = "IOTAP";
 const char* password = "raspberry";
 
 // Variables to be exposed to the API
-int temperature;
-int humidity;
+float temperature;
+float humidity;
 String local_ip = "";
 
 // The port to listen for incoming TCP connections
@@ -49,8 +49,8 @@ void setup(void)
   client.setCallback(callback);
 
   // Init variables and expose them to REST API
-  temperature = 24;
-  humidity = 40;
+  temperature = 24.0;
+  humidity = 40.0;
   rest.variable("temperature", &temperature);
   rest.variable("humidity", &humidity);
   rest.variable("local_ip", &local_ip);
@@ -117,9 +117,11 @@ void callback(char* topic, byte* payload, unsigned int length) {
       Serial.println("Failed to read from DHT sensor!");
       return;
     }else{
-      temperature = (int) t;
+      temperature = t;
+      humidity = h;
 
       Serial.print(t);
+      Serial.print(h);
     }
     
   }
