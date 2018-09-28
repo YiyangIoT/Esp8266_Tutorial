@@ -97,8 +97,13 @@ void loop() {
 
 }
 
-void update(){
-   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
+
+// Handles message arrived on subscribed topic(s)
+void callback(char* topic, byte* payload, unsigned int length) {
+
+  {
+
+    // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
     float h = dht.readHumidity();
     // Read temperature as Celsius (the default)
     float t = dht.readTemperature();
@@ -114,34 +119,8 @@ void update(){
       humidity = h;
 
     }
-}
-
-// Handles message arrived on subscribed topic(s)
-void callback(char* topic, byte* payload, unsigned int length) {
-
-  // {
-
-  //   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-  //   float h = dht.readHumidity();
-  //   // Read temperature as Celsius (the default)
-  //   float t = dht.readTemperature();
-  //   // Read temperature as Fahrenheit (isFahrenheit = true)
-  //   float f = dht.readTemperature(true);
-
-  //   // Check if any reads failed and exit early (to try again).
-  //   if (isnan(h) || isnan(t) || isnan(f)) {
-  //     Serial.println("Failed to read from DHT sensor!");
-  //     return;
-  //   }else{
-  //     temperature = t;
-  //     humidity = h;
-
-  //   }
     
-  // }
-
-    update();
-
+  }
 
 
   rest.handle_callback(client, topic, payload, length);
